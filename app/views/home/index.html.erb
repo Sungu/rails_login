@@ -1,0 +1,21 @@
+<% if user_signed_in? %>
+  <%= link_to "로그아웃", destroy_user_session_path, method: :delete, data: {confirm: "정말 로그아웃 하시겠습니까?" }%>
+  <p><%= current_user.username %></p>
+  <p><%= current_user.email %></p>
+  <p><%= current_user.name %></p>
+  <p><%= current_user.student_number %></p>
+  <p><%= current_user.nickname %></p>
+  <p><%= current_user.gender %></p>
+  <p><%= current_user.phone_number %></p>
+  <img src="<%= current_user.verifyimage %>" width="400" height="500" />
+<% else %>
+  <a href="/users/sign_up">회원가입</a>
+  <a href="/users/sign_in" >로그인하기</a>
+<% end %>
+<% if user_signed_in? %>
+  <% if current_user.id == 1 %>
+    <% @user.each do |x| %>
+      <%= x.name %> <img src="<%= current_user.verifyimage %>" width="200" height="200" />  :  <%= link_to "승인하기", "/home/approve/#{x.id}" %>
+    <% end %>
+  <% end %>
+<% end %>

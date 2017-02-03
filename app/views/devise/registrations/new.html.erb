@@ -1,0 +1,84 @@
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), multipart: true) do |f| %>
+  <%= devise_error_messages! %>
+  
+  <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username, autofocus: true %>
+  </div>
+  
+  <br>
+  
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+  
+  <br>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+  
+  <br>
+  
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email %>
+  </div>
+  
+  <br>
+  
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  
+  <br>
+  
+  <div class="field">
+    <%= f.label :student_number %><br />
+    <%= f.text_field :student_number %>
+  </div>
+  
+  <br>
+  
+  <div class="field">
+    <%= f.label :nickname %><br />
+    <%= f.text_field :nickname %>
+  </div>
+  
+  <br>
+  
+  <div class="field">
+    <%= f.label :gender %><br />
+    <%= f.select(:gender, ['남자', '여자'], {include_blank: "성별을 골라주세요"}) %>
+  </div>
+  
+  <br>
+  
+  <div class="field">
+    <%= f.label :phone_number %><br />
+    <%= f.text_field :phone_number %>
+  </div>
+  
+  <br>
+  
+  <div class="field">
+    <%= f.label :verifyimage %><br />
+    <%= f.file_field :verifyimage %>
+  </div>
+  
+  <br>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
